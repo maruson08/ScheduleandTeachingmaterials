@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+a{
+    text-decoration: none;
+    color: white;
+}
+#topNavBar{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 50px;
+}
+.navButton{
+    padding-top: 25px;
+    height: 50px;
+    font-family: 'Jua', sans-serif;
+    background-color: black;
+    text-align: center;
+}
+body{
+    margin: 0;
+}
+#topScheduleBar{
+    padding: 2%;
+    font-family: 'Jua', sans-serif;
+    color: white;
+    background-color: black;
+}
+.navButton:hover{
+    background-color: rgb(37, 37, 37);
+}
+.selected{
+    color: black;
+    background-color: white;
+    padding-top: 25px;
+    height: 50px;
+    font-family: 'Jua', sans-serif;
+    text-align: center;
+}
