@@ -41,7 +41,7 @@
                         result.push([`${j} - ${data.comingEvent[j]}`]);
                     }
                     setInterval(function() {
-                        console.log("i=", i)
+                        //console.log("i=", i)
                         $("#topScheduleBar").text(result[i]);
                         if (i == result.length-1)
                             i=0;
@@ -50,6 +50,7 @@
                     }, 1.5 * 1000);
                 }).fail(function(){
                     console.log("An error has occurred.");
+                })
             }
         </script>
     </body>

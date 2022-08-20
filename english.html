@@ -5,10 +5,6 @@
         <title>Home</title>
         <link rel="stylesheet" href="index.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<<<<<<< HEAD
-        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-=======
->>>>>>> 954581f3ac75f4e7cf2ddecce858df3e59dbc481
     </head>
     <body>
         <div id="topScheduleBar"></div>
@@ -21,7 +17,6 @@
             <a href="technology.html" class="navButton">기가</a>
             <a href="chinese.html" class="navButton">한문</a>
         </div>
-<<<<<<< HEAD
         <div id="mainContents"></div>
         <script>
             $(document).ready(function(){
@@ -35,19 +30,10 @@
             }
             function getEvent(){
                 $.getJSON("./event.json", function(data){
-                    $("#topScheduleBar").text(data.comingEvent.middle);
+                    $("#topScheduleBar").text(data.comingEvent.중간고사);
                 }).fail(function(){
                     console.log("An error has occurred.");
                 });}
         </script>
-=======
-        <div id="contents" style="margin: 25px;padding-top:250px; color: black; font-family: 'Jua', sans-serif;text-align: center;height: 250px;">
-            <!--여러분의 소중한 자료를 기다리고 있어요  😍-->
-        </div>
-
-
-        <script type="text/javascript" src="./common.js"></script>
-
->>>>>>> 954581f3ac75f4e7cf2ddecce858df3e59dbc481
     </body>
 </html>
