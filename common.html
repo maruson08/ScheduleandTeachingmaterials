@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Home</title>
+        <link rel="stylesheet" href="index.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="topScheduleBar">다가오는 일정</div>
+        <div id="topNavBar">
+            <a href="korean.html" class="navButton">국어</a>
+            <a href="math.html" class="navButton">수학</a>
+            <a href="science.html" class="navButton">과학</a>
+            <a href="english.html" class="navButton">영어</a>
+            <a href="moral.html" class="navButton">도덕</a>
+            <a href="technology.html" class="navButton">기가</a>
+            <a href="chinese.html" class="navButton">한문</a>
+        </div>
+        <div style="margin: 25px;padding-top:250px; color: black; font-family: 'Jua', sans-serif;text-align: center;height: 250px;">
+            <div id="contents">여러분의 소중한 자료를 기다리고 있어요  😍</div>
+
+
+
+        </div>
+        <script>
+            $("#topNavBar a").click(function(e) {
+                    $("#topNavBar a").removeClass("selected").addClass("navButton");
+                    $(this).addClass("selected").removeClass("navButton");   
+
+                    let href = $(this).attr("href");
+                    if(href==="korean.html") {
+                        $("#contents").text(`세종대왕님 만세!!`);
+                    }else if(href==="chinese.html"){
+                        $("#contents").text(`상형문자!!`);
+                    }else{
+                        //$("#contents").text(`여러분의 소중한 자료를 기다리고 있어요  😍`);
+                        setDefaultMsg()
+                    }
+                    
+
+                    e.preventDefault();       
+                }            
+            );
+
+        $(document).ready(function(){
+            setDefaultMsg()
+        });
+
+
+        function setDefaultMsg(){
+            $.getJSON("./wait_msg.json", function(data){
+                $("#contents").html(data.msg);
+            }).fail(function(){
+                console.log("An error has occurred.");
+            });  
+        }
+        </script> 
+
+    </body>
+</html>
