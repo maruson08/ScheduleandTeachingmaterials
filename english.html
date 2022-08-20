@@ -4,9 +4,14 @@
         <meta charset="utf-8" />
         <title>Home</title>
         <link rel="stylesheet" href="index.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<<<<<<< HEAD
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+=======
+>>>>>>> 954581f3ac75f4e7cf2ddecce858df3e59dbc481
     </head>
     <body>
-        <div id="topScheduleBar">다가오는 일정</div>
+        <div id="topScheduleBar"></div>
         <div id="topNavBar">
             <a href="korean.html" class="navButton">국어</a>
             <a href="math.html" class="navButton">수학</a>
@@ -16,8 +21,33 @@
             <a href="technology.html" class="navButton">기가</a>
             <a href="chinese.html" class="navButton">한문</a>
         </div>
-        <div style="margin: 25px;padding-top:250px; color: black; font-family: 'Jua', sans-serif;text-align: center;height: 250px;">
-            여러분의 소중한 자료를 기다리고 있어요  😍
+<<<<<<< HEAD
+        <div id="mainContents"></div>
+        <script>
+            $(document).ready(function(){
+                getEvent()
+                write()
+            })
+            function write(){
+                $.getJSON("./event.json", function(data){
+                    $("#mainContents").text(data.nothing);
+                })
+            }
+            function getEvent(){
+                $.getJSON("./event.json", function(data){
+                    $("#topScheduleBar").text(data.comingEvent.middle);
+                }).fail(function(){
+                    console.log("An error has occurred.");
+                });}
+        </script>
+=======
+        <div id="contents" style="margin: 25px;padding-top:250px; color: black; font-family: 'Jua', sans-serif;text-align: center;height: 250px;">
+            <!--여러분의 소중한 자료를 기다리고 있어요  😍-->
         </div>
+
+
+        <script type="text/javascript" src="./common.js"></script>
+
+>>>>>>> 954581f3ac75f4e7cf2ddecce858df3e59dbc481
     </body>
 </html>

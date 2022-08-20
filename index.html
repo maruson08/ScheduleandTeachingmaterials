@@ -4,9 +4,10 @@
         <meta charset="utf-8" />
         <title>Home</title>
         <link rel="stylesheet" href="index.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
-        <div id="topScheduleBar">다가오는 일정</div>
+        <div id="topScheduleBar"></div>
         <div id="topNavBar">
             <a href="korean.html" class="navButton">국어</a>
             <a href="math.html" class="navButton">수학</a>
@@ -16,5 +17,40 @@
             <a href="technology.html" class="navButton">기가</a>
             <a href="chinese.html" class="navButton">한문</a>
         </div>
+        <div id="mainContents"></div>
+        <script>
+            $(document).ready(function(){
+                getEvent()
+                write()
+            })
+            function write(){
+                $.getJSON("./event.json", function(data){
+                    let i = 0;
+                    for(key in data.comingEvent){
+                        $("#mainContents").append(`${++i}. ${key} - ${data.comingEvent[key]}<br>`);
+                    }
+                })
+            }
+
+            // 일정 롤링
+            function getEvent(){
+                var i = 0;
+                var result = [];
+                $.getJSON("./event.json", function(data){
+                    for(j in data.comingEvent){
+                        result.push([`${j} - ${data.comingEvent[j]}`]);
+                    }
+                    setInterval(function() {
+                        console.log("i=", i)
+                        $("#topScheduleBar").text(result[i]);
+                        if (i == result.length-1)
+                            i=0;
+                        else
+                            i++;
+                    }, 1.5 * 1000);
+                }).fail(function(){
+                    console.log("An error has occurred.");
+            }
+        </script>
     </body>
 </html>

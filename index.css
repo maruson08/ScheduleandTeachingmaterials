@@ -23,6 +23,8 @@ body{
     font-family: 'Jua', sans-serif;
     color: white;
     background-color: black;
+    text-align: center;
+    font-size: x-large;
 }
 .navButton:hover{
     background-color: rgb(37, 37, 37);
@@ -34,4 +36,12 @@ body{
     height: 50px;
     font-family: 'Jua', sans-serif;
     text-align: center;
+}
+#mainContents{
+    margin: 25px;
+    padding-top:250px;
+    color: black;
+    font-family: 'Jua', sans-serif;
+    text-align: center;
+    height: 250px;
 }
