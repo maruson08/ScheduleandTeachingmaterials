@@ -31,7 +31,6 @@
             $(".m_navButton div").click(function(e) {
                     $(".m_navButton div").removeClass("selected").addClass("navButton");
                     $(this).addClass("selected").removeClass("navButton");
-
                     let menu = $(this).attr('id');
                     if(menu==="korean") {
                         getContents(menu);
@@ -58,10 +57,24 @@
                 
             function getContents(menu){
                 $.getJSON(`./${menu}.json`, function(data){
-                            $("#mainContents").text("");
-                            for(i in data){
-                                $("#mainContents").append(data[i]+"<br>");
-                            }                        
+                    $("#mainContents").html("");
+                    for(i in data){
+                        const div = document.createElement("div");
+                        div.setAttribute("id", i);
+                        const img = document.createElement("img");
+                        img.src = i;
+                        img.classList.add("contImg")
+                        const text = document.createElement("div");
+                        text.id=`${i}_text`;
+                        text.classList.add("contText");
+                        document.getElementById("mainContents").appendChild(div);
+                        document.getElementById(i).appendChild(img);
+                        document.getElementById(i).appendChild(text);
+                        console.log("test");
+                        for(j in data.i){
+                            getElementById(`${i}_text`).append(`dd<br>`);
+                        }
+                    }                    
                         })
             }
             $(document).ready(function(){
@@ -94,7 +107,7 @@
                             i++;
                     }, 4 * 1000);
                 }).fail(function(){
-                    console.log("An error has occurred.");
+                    $("topScheduleBar").text("Error");
                 })
             }
         </script>

@@ -51,6 +51,16 @@ body{
     color: white;
     background-color: black;
 }
+.contDiv{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.conText{
+    color: black;
+}
+.contImg{
+    width: 50%;
+}
 @media(max-width:800px){
     .m_navButton{
         display: block;
