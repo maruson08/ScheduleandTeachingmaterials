@@ -9,16 +9,60 @@
     <body>
         <div id="topScheduleBar"></div>
         <div id="topNavBar">
-            <a href="korean.html" class="navButton">국어</a>
-            <a href="math.html" class="navButton">수학</a>
-            <a href="science.html" class="navButton">과학</a>
-            <a href="english.html" class="navButton">영어</a>
-            <a href="moral.html" class="navButton">도덕</a>
-            <a href="technology.html" class="navButton">기가</a>
-            <a href="chinese.html" class="navButton">한문</a>
+            <div class="m_navButton">
+                <div id="korean"class="navButton">국어</div>
+                <div id="math"class="navButton">수학</div>
+                <div id="science"class="navButton">과학</div>
+            </div>
+            <div class="m_navButton">
+                <div id="english_R"class="navButton">영어-Red</div>
+                <div id="english_B"class="navButton">영어-Blue</div>
+                <div id="moral"class="navButton">도덕</div>
+            </div>
+            <div class="m_navButton">
+                <div id="tech_and_house"class="navButton">기가</div>
+                <div id="chinese"class="navButton">한문</div>
+                <div id="dev_log"class="navButton">개발 일지</div>
+            </div>
         </div>
         <div id="mainContents"></div>
         <script>
+            $(".m_navButton div").click(function(e) {
+                    $(".m_navButton div").removeClass("selected").addClass("navButton");
+                    $(this).addClass("selected").removeClass("navButton");
+
+                    let menu = $(this).attr('id');
+                    if(menu==="korean") {
+                        getContents(menu);
+                    }else if(menu==="math"){
+                        getContents(menu);
+                    }else if(menu==="science"){
+                        getContents(menu);
+                    }else if(menu==="english_R"){
+                        getContents(menu);
+                    }else if(menu==="english_B"){
+                        getContents(menu);
+                    }else if(menu==="moral"){
+                        getContents(menu);
+                    }else if(menu==="tech_and_house"){
+                        getContents(menu);
+                    }else if(menu==="chinese"){
+                        getContents(menu);
+                    }else{
+                        getContents(menu);
+                    }
+                    e.preventDefault();     
+                }            
+            );
+                
+            function getContents(menu){
+                $.getJSON(`./${menu}.json`, function(data){
+                            $("#mainContents").text("");
+                            for(i in data){
+                                $("#mainContents").append(data[i]+"<br>");
+                            }                        
+                        })
+            }
             $(document).ready(function(){
                 getEvent()
                 write()
@@ -40,14 +84,14 @@
                     for(j in data.comingEvent){
                         result.push([`${j} - ${data.comingEvent[j]}`]);
                     }
+                    $("#topScheduleBar").text("Loading");
                     setInterval(function() {
-                        //console.log("i=", i)
                         $("#topScheduleBar").text(result[i]);
                         if (i == result.length-1)
                             i=0;
                         else
                             i++;
-                    }, 1.5 * 1000);
+                    }, 4 * 1000);
                 }).fail(function(){
                     console.log("An error has occurred.");
                 })

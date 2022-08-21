@@ -4,15 +4,15 @@ a{
     color: white;
 }
 #topNavBar{
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     height: 50px;
 }
 .navButton{
     padding-top: 25px;
     height: 50px;
     font-family: 'Jua', sans-serif;
-    background-color: black;
     text-align: center;
 }
 body{
@@ -44,4 +44,19 @@ body{
     font-family: 'Jua', sans-serif;
     text-align: center;
     height: 250px;
+}
+.m_navButton{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    color: white;
+    background-color: black;
+}
+@media(max-width:800px){
+    .m_navButton{
+        display: block;
+    }
+    .navButton{
+        height: 30px;
+        padding-top: 15px;
+    }
 }
