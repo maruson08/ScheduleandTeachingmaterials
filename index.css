@@ -55,7 +55,7 @@ body{
     .m_navButton{
         display: block;
     }
-    .navButton{
+    .navButton, .selected{
         height: 30px;
         padding-top: 15px;
     }
