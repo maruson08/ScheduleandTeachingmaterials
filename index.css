@@ -39,7 +39,7 @@ body{
 }
 #mainContents{
     margin: 25px;
-    padding-top:250px;
+    padding-top:100px;
     color: black;
     font-family: 'Jua', sans-serif;
     text-align: center;
@@ -55,12 +55,17 @@ body{
     padding: 10px;
     display: grid;
     grid-template-columns: 2fr 1fr;
+    border: 5px black solid;
+    border-radius: 8px;
+    margin-bottom: 5%;
 }
 .contText{
     color: black;
 }
 .contImg{
-    margin-left: 10%;
+    border-right: 3px black dashed;
+    padding-left: 5%;
+    padding-right: 5%;
     width: 80%;
 }
 @media(max-width:800px){
@@ -80,5 +85,6 @@ body{
         margin: 0;
         border: 1px black solid;
         border-radius: 5px;
+        padding: 0;
     } 
 }

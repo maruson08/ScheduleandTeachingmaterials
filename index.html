@@ -23,7 +23,7 @@
             <div class="m_navButton">
                 <div id="tech_and_house"class="navButton">기가</div>
                 <div id="chinese"class="navButton">한문</div>
-                <div id="dev_log"class="navButton">개발 일지</div>
+                <div id="event"class="navButton">일정</div>
             </div>
         </div>
         <div id="mainContents"></div>
@@ -32,10 +32,12 @@
                     $(".m_navButton div").removeClass("selected").addClass("navButton");
                     $(this).addClass("selected").removeClass("navButton");
                     let menu = $(this).attr('id');
-                    if(menu === "english_R"){
+                    if(menu === "english_R"||menu === "math"){
                         getContents(menu);
+                    }else if(menu === "event"){
+                        write();
                     }else{
-                        $("#mainContents").html(`여러분들의 멋진 자료를 기다리고 있어요 😃`);
+                        $("#mainContents").html(`여러분들의 유용한 자료를 기다리고 있어요 😃`);
                     }
                     e.preventDefault();     
                 }            
@@ -71,6 +73,7 @@
                 write()
             })
             function write(){
+                $("#mainContents").text("")
                 $.getJSON("./event.json", function(data){
                     let i = 0;
                     for(key in data.comingEvent){
