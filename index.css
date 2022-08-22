@@ -52,14 +52,16 @@ body{
     background-color: black;
 }
 .contDiv{
+    padding: 10px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
 }
-.conText{
+.contText{
     color: black;
 }
 .contImg{
-    width: 50%;
+    margin-left: 10%;
+    width: 80%;
 }
 @media(max-width:800px){
     .m_navButton{
@@ -69,4 +71,14 @@ body{
         height: 30px;
         padding-top: 15px;
     }
+    .contDiv{
+        display: block;
+        border: 5px black solid;
+        border-radius: 8px;
+    }
+    .contImg{
+        margin: 0;
+        border: 1px black solid;
+        border-radius: 5px;
+    } 
 }

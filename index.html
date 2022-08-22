@@ -32,45 +32,31 @@
                     $(".m_navButton div").removeClass("selected").addClass("navButton");
                     $(this).addClass("selected").removeClass("navButton");
                     let menu = $(this).attr('id');
-                    if(menu==="korean") {
-                        getContents(menu);
-                    }else if(menu==="math"){
-                        getContents(menu);
-                    }else if(menu==="science"){
-                        getContents(menu);
-                    }else if(menu==="english_R"){
-                        getContents(menu);
-                    }else if(menu==="english_B"){
-                        getContents(menu);
-                    }else if(menu==="moral"){
-                        getContents(menu);
-                    }else if(menu==="tech_and_house"){
-                        getContents(menu);
-                    }else if(menu==="chinese"){
-                        getContents(menu);
-                    }else{
-                        getContents(menu);
-                    }
+                    getContents(menu);
                     e.preventDefault();     
                 }            
             );
                 
             function getContents(menu){
+                $("#mainContents").html("");
                 $.getJSON(`./${menu}.json`, function(data){
-                    $("#mainContents").html("");
-                    for(i in data){
+                    for(key in data){
+                        console.log("key")
                         const div = document.createElement("div");
-                        div.setAttribute("id", i);
+                        div.setAttribute("id", key);
+                        div.classList.add("contDiv")
                         const img = document.createElement("img");
-                        img.src = i;
+                        img.src = key;
                         img.classList.add("contImg")
                         const text = document.createElement("div");
-                        text.id=`${i}_text`;
+                        text.id=`${key}_text`;
                         text.classList.add("contText");
+                        text.append("작성자 : "+data[key].작성자);
+                        console.log(key)
                         document.getElementById("mainContents").appendChild(div);
-                        document.getElementById(i).appendChild(img);
-                        document.getElementById(i).appendChild(text);
-                        console.log("test");
+                        document.getElementById(key).appendChild(img);
+                        document.getElementById(key).appendChild(text);
+                        console.log(key)
                     }                    
                         })
             }
