@@ -32,7 +32,11 @@
                     $(".m_navButton div").removeClass("selected").addClass("navButton");
                     $(this).addClass("selected").removeClass("navButton");
                     let menu = $(this).attr('id');
-                    getContents(menu);
+                    if(menu === "english_R"){
+                        getContents(menu);
+                    }else{
+                        $("#mainContents").html(`여러분들의 멋진 자료를 기다리고 있어요 😃`);
+                    }
                     e.preventDefault();     
                 }            
             );
@@ -52,6 +56,8 @@
                         text.id=`${key}_text`;
                         text.classList.add("contText");
                         text.append("작성자 : "+data[key].작성자);
+                        text.append(" / 유형 : "+data[key].유형);
+                        text.append(" / 등록일자 : "+data[key].등록일자);
                         console.log(key)
                         document.getElementById("mainContents").appendChild(div);
                         document.getElementById(key).appendChild(img);
