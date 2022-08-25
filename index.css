@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 a{
     text-decoration: none;
-    color: white;
+    color: blue;
 }
 #topNavBar{
     width: 100%;
@@ -67,6 +67,11 @@ body{
     padding-left: 5%;
     padding-right: 5%;
     width: 80%;
+}
+#howTo{
+    border: none;
+    border-bottom: 1px black solid;
+    background-color: white;
 }
 @media(max-width:800px){
     .m_navButton{
