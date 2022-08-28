@@ -2,11 +2,9 @@ $(".m_navButton div").click(function(e) {
     $(".m_navButton div").removeClass("selected").addClass("navButton");
     $(this).addClass("selected").removeClass("navButton");
     let menu = $(this).attr('id');
-    if(menu === "english_R"){
-        $("#mainContents").html(`여러분들의 유용한 자료를 기다리고 있어요 😃<br> 영어-Red 게시판의 첫 등록자가 되어 보세요.`);
-        $("#mainContents").append(`<br><a href="https://band.us/">자료 등록 하러가기</a>`);
-        $("#mainContents").append(`<br><button id='howTo' onclick="howTo()">자료 등록하는 방법</button>`);
-    }else if(menu === "math"){
+    if(menu === "science"||menu === "moral"){
+        getContents(menu);
+    }else if(menu === "english_R"){
         $("#mainContents").html(`여러분들의 유용한 자료를 기다리고 있어요 😃<br> 수학 게시판의 첫 등록자가 되어 보세요.`);
         $("#mainContents").append(`<br><a href="https://band.us/">자료 등록 하러가기</a>`);
         $("#mainContents").append(`<br><button id='howTo' onclick="howTo()">자료 등록하는 방법</button>`);
@@ -24,8 +22,8 @@ $(".m_navButton div").click(function(e) {
         $("#mainContents").html(`여러분들의 유용한 자료를 기다리고 있어요 😃<br> 영어-Blue 게시판의 첫 등록자가 되어 보세요.`);
         $("#mainContents").append(`<br><a href="https://band.us/">자료 등록 하러가기</a>`);
         $("#mainContents").append(`<br><button id='howTo' onclick="howTo()">자료 등록하는 방법</button>`);
-    }else if(menu === "moral"){
-        $("#mainContents").html(`여러분들의 유용한 자료를 기다리고 있어요 😃<br> 도덕 게시판의 첫 등록자가 되어 보세요.`);
+    }else if(menu === "math"){
+        $("#mainContents").html(`여러분들의 유용한 자료를 기다리고 있어요 😃<br> 수학 게시판의 첫 등록자가 되어 보세요.`);
         $("#mainContents").append(`<br><a href="https://band.us/">자료 등록 하러가기</a>`);
         $("#mainContents").append(`<br><button id='howTo' onclick="howTo()">자료 등록하는 방법</button>`);
     }else if(menu === "tech_and_house"){
