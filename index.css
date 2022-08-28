@@ -70,7 +70,6 @@ body{
 }
 #howTo{
     border: none;
-    border-bottom: 1px black solid;
     background-color: white;
 }
 @media(max-width:800px){
