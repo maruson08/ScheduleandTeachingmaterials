@@ -46,7 +46,7 @@ e.preventDefault();
 };
 function getContents(menu){
 $("#mainContents").html("");
-$.getJSON(`./${menu}.json`, function(data){
+$.getJSON(`./JSON/${menu}.json`, function(data){
     for(key in data){
         const div = document.createElement("div");
         div.setAttribute("id", key);
@@ -72,7 +72,7 @@ write()
 })
 function write(){
 $("#mainContents").text("")
-$.getJSON("./event.json", function(data){
+$.getJSON("./JSON/event.json", function(data){
     let i = 0;
     for(key in data.comingEvent){
         $("#mainContents").append(`${++i}. ${key} - ${data.comingEvent[key]}<br>`);
@@ -84,13 +84,13 @@ $.getJSON("./event.json", function(data){
 function getEvent(){
 var i = 0;
 var result = [];
-$.getJSON("./event.json", function(data){
+$.getJSON("./JSON/event.json", function(data){
     for(j in data.comingEvent){
         result.push([`${j} - ${data.comingEvent[j]}`]);
     }
-    $("#topScheduleBar").text("Loading");
+    $("#topScheduleBar").html("Loading");
     setInterval(function() {
-        $("#topScheduleBar").text(result[i]);
+        $("#topScheduleBar").html(result[i]);
         if (i == result.length-1)
             i=0;
         else
