@@ -44,28 +44,55 @@ function howTo() {
     d++;
 e.preventDefault();
 };
-function getContents(menu){
-$("#mainContents").html("");
-$.getJSON(`./JSON/${menu}.json`, function(data){
-    for(key in data){
-        const div = document.createElement("div");
-        div.setAttribute("id", key);
-        div.classList.add("contDiv")
-        const img = document.createElement("img");
-        img.src = key;
-        img.classList.add("contImg")
-        const text = document.createElement("div");
-        text.id=`${key}_text`;
-        text.classList.add("contText");
-        text.append("작성자 : "+data[key].작성자);
-        text.append(" / 유형 : "+data[key].유형);
-        text.append(" / 등록일자 : "+data[key].등록일자);
-        document.getElementById("mainContents").appendChild(div);
-        document.getElementById(key).appendChild(img);
-        document.getElementById(key).appendChild(text);
-    }                    
-        })
+
+function setDownload(){
+    const id = this.id
+    $('#exampleModalLabel').text(id)
+    $('#download_img').attr('href', `./img/${id}`)            
+    $('#modal_img').attr('src', `./img/${id}`)  
 }
+
+
+function getContents(menu){
+    $("#mainContents").html("");
+    $.getJSON(`./JSON/${menu}.json`, function(data){
+        for(key in data){
+            const div = document.createElement("div");
+            div.setAttribute("id", key);
+            div.classList.add("contDiv")
+
+
+            const btn_img = $('<button />', {
+                'type': 'button',
+                'class': 'btn border-0 p-0',
+                'id': `${key}`,
+                'data-bs-toggle': 'modal',
+                'data-bs-target': '#exampleModal',
+                'width': '100%'
+            }).get(0);
+            const img = document.createElement("img");
+            img.src = `./img/${key}`;
+            img.setAttribute('style', 'padding:0;')
+            img.classList.add("contImg")
+
+            btn_img.appendChild(img);
+            btn_img.addEventListener("click", setDownload)
+
+            const text = document.createElement("div");
+            text.id=`${key}_text`;
+            text.classList.add("contText");
+            text.append("작성자 : "+data[key].작성자);
+            text.append(" / 유형 : "+data[key].유형);
+            text.append(" / 등록일자 : "+data[key].등록일자);
+            document.getElementById('mainContents').appendChild(div);
+            document.getElementById(key).appendChild(btn_img);
+            document.getElementById(key).appendChild(text);
+        }      
+    })
+}
+
+
+
 $(document).ready(function(){
 getEvent()
 write()
@@ -100,3 +127,4 @@ $.getJSON("./JSON/event.json", function(data){
     $("topScheduleBar").text("Error");
 })
 }
+
