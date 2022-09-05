@@ -43,7 +43,7 @@ body{
     color: black;
     font-family: 'Jua', sans-serif;
     text-align: center;
-    height: 250px;
+    min-height: 635px;
 }
 .m_navButton{
     display: grid;
@@ -72,6 +72,12 @@ body{
     border: none;
     background-color: white;
 }
+.infoDiv{
+    background-color: black;
+    height: 200px;
+    text-align: center;
+    color: white;
+}
 @media(max-width:800px){
     .m_navButton{
         display: block;
@@ -86,6 +92,7 @@ body{
         border-radius: 8px;
         margin: 0;
         margin-bottom: 5%;
+
     }
     .contImg{
         margin: 0;
