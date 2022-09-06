@@ -65,17 +65,22 @@ body{
     color: black;
 }
 .contImg{
-    border-right: 3px black dashed;
+    border: 1px black solid;
     width: 100%;
+    padding-right: 30px;
+    border-radius:10px;
 }
 #howTo{
     border: none;
     background-color: white;
 }
-.infoDiv{
+#infoDiv{
     background-color: black;
     height: 200px;
     text-align: center;
+    color: gray;
+}
+.infoDiv:hover{
     color: white;
 }
 @media(max-width:800px){
@@ -92,11 +97,11 @@ body{
         border-radius: 8px;
         margin: 0;
         margin-bottom: 5%;
-
+    }
+    #mainContents{
+        min-height: ;
     }
     .contImg{
-        margin: 0;
-        border: 1px black solid;
         border-radius: 5px;
         padding: 0;
     } 

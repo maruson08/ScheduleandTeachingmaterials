@@ -12,7 +12,7 @@
         <div id="topScheduleBar"></div>
         <div class="offcanvas show offcanvas-bottom" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
             <div class="offcanvas-body" style="text-align: center;">
-                <h5>자료 등록 안내</h5><br>월/금 오후 5:30 ~ 6:00<br>토/일 유동적
+                <h5><b>자료 등록 안내</b></h5><br>월/금 오후 5:30 ~ 6:00<br>토/일 유동적
             </div>
         </div>
         <div id="topNavBar">
@@ -34,7 +34,7 @@
         </div>
         <div id="mainContents"></div>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered" >
                 <div class="modal-content">
                     <div class="modal-header bg-dark">
                         <h5 class="modal-title text-white" id="exampleModalLabel"></h5>
@@ -50,14 +50,11 @@
                 </div>
             </div>
         </div>
-        <div class="infoDiv">
-            <br><br>주소 : 미양중 2층 2-1<br>대표자명 : 손원희<br>대표메일 : maruson08@naver.com
-            <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">About</button>
+        <div id="infoDiv">
+            <br><br>주소 : 미양중 2층 2-1<br>대표자명 : 손원희<br>대표메일 : maruson08@naver.com<br><br>
+            <div style="cursor: pointer;" class="infoDiv" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">About</div>
             <div class="offcanvas offcanvas-bottom  text-black" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasBottomLabel">About</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
+            <h5 class="offcanvas-title" id="offcanvasBottomLabel"><b>About</b></h5>
             <div class="offcanvas-body small">
                 반 평균을 올리기 위한 프로젝트<br>개발자 : 손원희
             </div>

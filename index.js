@@ -68,7 +68,6 @@ function getContents(menu){
             }).get(0);
             const img = document.createElement("img");
             img.src = `./img/${key}`;
-            img.setAttribute('style', 'padding:0;')
             img.classList.add("contImg")
 
             btn_img.appendChild(img);
