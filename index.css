@@ -98,11 +98,7 @@ body{
         margin-bottom: 5%;
     }
     #mainContents{
-<<<<<<< HEAD
         min-height: 0;
-=======
-        min-height: 20px;
->>>>>>> 67bb52861f6be3d3d62ba2d73c3ee59e0cf50330
     }
     .contImg{
         border-radius: 5px;
