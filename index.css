@@ -104,4 +104,7 @@ body{
         border-radius: 5px;
         padding: 0;
     } 
+    #topNavBar{
+        height : 150px;
+    }
 }
