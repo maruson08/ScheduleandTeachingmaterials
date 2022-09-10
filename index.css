@@ -98,7 +98,7 @@ body{
         margin-bottom: 5%;
     }
     #mainContents{
-        min-height: ;
+        min-height: 0;
     }
     .contImg{
         border-radius: 5px;

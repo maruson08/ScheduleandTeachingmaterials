@@ -2,7 +2,7 @@ $(".m_navButton div").click(function(e) {
     $(".m_navButton div").removeClass("selected").addClass("navButton");
     $(this).addClass("selected").removeClass("navButton");
     let menu = $(this).attr('id');
-    if(menu === "science"||menu === "moral"||menu === 'math'){
+    if(menu === "science"||menu === "moral"||menu === 'math'||menu === "korean"){
         getContents(menu);
     }else if(menu === "english_R"){
         $("#mainContents").html(`여러분들의 유용한 자료를 기다리고 있어요 😃<br> 영어-Red 게시판의 첫 등록자가 되어 보세요.`);
@@ -10,10 +10,6 @@ $(".m_navButton div").click(function(e) {
         $("#mainContents").append(`<br><button id='howTo' onclick="howTo()">자료 등록하는 방법</button>`);
     }else if(menu === "event"){
         write();
-    }else if(menu === "korean"){
-        $("#mainContents").html(`여러분들의 유용한 자료를 기다리고 있어요 😃<br> 국어 게시판의 첫 등록자가 되어 보세요.`);
-        $("#mainContents").append(`<br><a href="https://band.us/">자료 등록 하러가기</a>`);
-        $("#mainContents").append(`<br><button id='howTo' onclick="howTo()">자료 등록하는 방법</button>`);
     }else if(menu === "science"){
         $("#mainContents").html(`여러분들의 유용한 자료를 기다리고 있어요 😃<br> 과학 게시판의 첫 등록자가 되어 보세요.`);
         $("#mainContents").append(`<br><a href="https://band.us/">자료 등록 하러가기</a>`);
@@ -48,7 +44,7 @@ function setDownload(){
     $('#modal_img').attr('src', `./img/${id}`)  
 }
 
-
+//자료 불러오기
 function getContents(menu){
     $("#mainContents").html("");
     $.getJSON(`./JSON/${menu}.json`, function(data){
@@ -58,36 +54,55 @@ function getContents(menu){
             div.classList.add("contDiv")
 
 
-            const btn_img = $('<button />', {
-                'type': 'button',
-                'class': 'btn border-0 p-0',
-                'id': `${key}`,
-                'data-bs-toggle': 'modal',
-                'data-bs-target': '#exampleModal',
-                'width': '100%'
-            }).get(0);
-            const img = document.createElement("img");
-            img.src = `./img/${key}`;
-            img.classList.add("contImg")
+            if(data[key].type === 'img'){
+                const btn_img = $('<button />', {
+                    'type': 'button',
+                    'class': 'btn border-0 p-0',
+                    'id': `${key}`,
+                    'data-bs-toggle': 'modal',
+                    'data-bs-target': '#exampleModal',
+                    'width': '100%'
+                }).get(0);
+                const img = document.createElement("img");
+                img.src = `./img/${key}`;
+                img.classList.add("contImg");
 
-            btn_img.appendChild(img);
-            btn_img.addEventListener("click", setDownload)
+                btn_img.appendChild(img);
+                btn_img.addEventListener("click", setDownload);
 
-            const text = document.createElement("div");
-            text.id=`${key}_text`;
-            text.classList.add("contText");
-            text.append("작성자 : "+data[key].작성자);
-            text.append(" / 유형 : "+data[key].유형);
-            text.append(" / 등록일자 : "+data[key].등록일자);
-            document.getElementById('mainContents').appendChild(div);
-            document.getElementById(key).appendChild(btn_img);
-            document.getElementById(key).appendChild(text);
-        }      
+                const text = document.createElement("div");
+                text.id=`${key}_text`;
+                text.classList.add("contText");
+                text.append("작성자 : "+data[key].작성자);
+                text.append(" / 유형 : "+data[key].유형);
+                text.append(" / 등록일자 : "+data[key].등록일자);
+                document.getElementById('mainContents').appendChild(div);
+                document.getElementById(key).appendChild(btn_img);
+                document.getElementById(key).appendChild(text);
+            }else if(data[key].type === 'docs'){
+                const docs= $('<a />', {
+                    'id': `${key}`,
+                    'href': `./docs/${key}`,
+                    'style': 'color : black'
+                }).get(0);
+                docs.innerHTML = `${key} 다운로드 하기`;
+
+                const text = document.createElement("div");
+                text.id=`${key}_text`;
+                text.classList.add("contText");
+                text.append("작성자 : "+data[key].작성자);
+                text.append(" / 유형 : "+data[key].유형);
+                text.append(" / 등록일자 : "+data[key].등록일자);
+                document.getElementById('mainContents').appendChild(div);
+                document.getElementById(key).appendChild(docs);
+                document.getElementById(key).appendChild(text);
+            }
+        }
     })
 }
 
 
-
+//일정 불러오기
 $(document).ready(function(){
 getEvent()
 write()
@@ -122,4 +137,3 @@ $.getJSON("./JSON/event.json", function(data){
     $("topScheduleBar").text("Error");
 })
 }
-
