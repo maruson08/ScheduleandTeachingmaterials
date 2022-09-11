@@ -12,15 +12,14 @@ a{
 .navButton{
     padding-top: 25px;
     height: 50px;
-    font-family: 'Jua', sans-serif;
     text-align: center;
 }
 body{
     margin: 0;
+    font-family: 'Jua', sans-serif;
 }
 #topScheduleBar{
     padding: 2%;
-    font-family: 'Jua', sans-serif;
     color: white;
     background-color: black;
     text-align: center;
@@ -34,14 +33,12 @@ body{
     background-color: white;
     padding-top: 15px;
     height: 50px;
-    font-family: 'Jua', sans-serif;
     text-align: center;
 }
 #mainContents{
     margin: 25px;
     padding-top:100px;
     color: black;
-    font-family: 'Jua', sans-serif;
     text-align: center;
     min-height: 635px;
 }
@@ -99,12 +96,13 @@ body{
     }
     #mainContents{
         min-height: 0;
+        padding-top: 0;
     }
     .contImg{
         border-radius: 5px;
         padding: 0;
     } 
     #topNavBar{
-        height: 105px;
+        height: 90px;
     }
 }

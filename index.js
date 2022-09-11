@@ -38,11 +38,18 @@ e.preventDefault();
 };
 
 function setDownload(){
-    const id = this.id
-    $('#exampleModalLabel').text(id)
-    $('#download_img').attr('href', `./img/${id}`)            
-    $('#modal_img').attr('src', `./img/${id}`)  
+    const id = this.id;
+    const img = $('<img />', {
+        'id': 'modal_img',
+        'src': 'button',
+        'width': '100%'
+    }).get(0);
+    document.getElementById('download_img').appendChild(img);
+    $('#exampleModalLabel').text(id);
+    $('#download_img').attr('href', `./img/${id}`);
+    $('#modal_img').attr('src', `./img/${id}`);
 }
+
 
 //자료 불러오기
 function getContents(menu){
@@ -52,7 +59,6 @@ function getContents(menu){
             const div = document.createElement("div");
             div.setAttribute("id", key);
             div.classList.add("contDiv")
-
 
             if(data[key].type === 'img'){
                 const btn_img = $('<button />', {
@@ -80,13 +86,17 @@ function getContents(menu){
                 document.getElementById(key).appendChild(btn_img);
                 document.getElementById(key).appendChild(text);
             }else if(data[key].type === 'docs'){
-                const docs= $('<a />', {
+                const docs= $('<span />', {
                     'id': `${key}`,
                     'href': `./docs/${key}`,
-                    'style': 'color : black'
+                    'style': 'color : black',
+                    'target': '_blank'
                 }).get(0);
-                docs.innerHTML = `${key} 다운로드 하기`;
-
+                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    docs.innerHTML = `${key} <br> <a class="material-symbols-outlined" href='./docs/${key}' style='color:black' download>download</a>`;
+                }else{
+                    docs.innerHTML = `<embed src="./docs/${key}" type="application/pdf" width='100%' height='700px'/>`;
+                }
                 const text = document.createElement("div");
                 text.id=`${key}_text`;
                 text.classList.add("contText");
