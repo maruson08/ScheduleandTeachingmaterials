@@ -79,6 +79,9 @@ body{
 .infoDiv:hover{
     color: white;
 }
+#eventDiv{
+    text-align: center;
+}
 @media(max-width:800px){
     .m_navButton{
         display: block;
@@ -104,5 +107,8 @@ body{
     } 
     #topNavBar{
         height: 90px;
+    }
+    #eventDiv{
+        text-align: left;
     }
 }

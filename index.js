@@ -1,6 +1,8 @@
+
 $(".m_navButton div").click(function(e) {
     $(".m_navButton div").removeClass("selected").addClass("navButton");
     $(this).addClass("selected").removeClass("navButton");
+    $('#mainContenst').html('')
     let menu = $(this).attr('id');
     if(menu === "science"||menu === "moral"||menu === 'math'||menu === "korean"){
         getContents(menu);
@@ -37,17 +39,31 @@ function howTo() {
 e.preventDefault();
 };
 
-function setDownload(){
+function setImgModal(){
+    $('#contenstModalMain').innerHTML = '';
+    const a = $('<a />', {
+        'id': 'download_img',
+        'download': 'true'
+    }).get(0);
     const id = this.id;
     const img = $('<img />', {
         'id': 'modal_img',
-        'src': 'button',
+        'src': '',
         'width': '100%'
     }).get(0);
-    document.getElementById('download_img').appendChild(img);
-    $('#exampleModalLabel').text(id);
+    document.getElementById('download_img').append(img);
+    $('#contentsModalLabel').text(id);
     $('#download_img').attr('href', `./img/${id}`);
     $('#modal_img').attr('src', `./img/${id}`);
+}
+
+function setDocsModal(){
+    $('#contenstModalMain').innerHTML = '';
+    const id = this.id
+    console.log(id)
+    $('#download_img').html(`<embed src="./docs/${id}" type="application/pdf" style='width:100%;height:700px;border-radius:5px'/>`);
+    $('#contentsModalLabel').text(id);
+    
 }
 
 
@@ -66,7 +82,7 @@ function getContents(menu){
                     'class': 'btn border-0 p-0',
                     'id': `${key}`,
                     'data-bs-toggle': 'modal',
-                    'data-bs-target': '#exampleModal',
+                    'data-bs-target': '#contentsModal',
                     'width': '100%'
                 }).get(0);
                 const img = document.createElement("img");
@@ -74,7 +90,7 @@ function getContents(menu){
                 img.classList.add("contImg");
 
                 btn_img.appendChild(img);
-                btn_img.addEventListener("click", setDownload);
+                btn_img.addEventListener("click", setImgModal);
 
                 const text = document.createElement("div");
                 text.id=`${key}_text`;
@@ -87,22 +103,22 @@ function getContents(menu){
                 document.getElementById(key).appendChild(text);
             }else if(data[key].type === 'docs'){
                 const docs= $('<span />', {
-                    'id': `${key}`,
-                    'href': `./docs/${key}`,
-                    'style': 'color : black',
-                    'target': '_blank'
+                    'id': `${key}`
                 }).get(0);
                 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                    docs.innerHTML = `${key} <br> <a class="material-symbols-outlined" href='./docs/${key}' style='color:black' download>download</a>`;
+                    docs.innerHTML = `${key} <br> <a class="btn material-symbols-outlined" href='./docs/${key}' download>download</a>`;  
                 }else{
-                    docs.innerHTML = `<embed src="./docs/${key}" type="application/pdf" width='100%' height='700px'/>`;
+                    docs.innerHTML = `${key} <br> <span class='btn material-symbols-outlined' data-bs-toggle='modal' data-bs-target='#contentsModal'>open_in_new</span> <a class="btn material-symbols-outlined" href='./docs/${key}' style='color:black' download>download</a>`;
+                    docs.addEventListener("click", setDocsModal);
                 }
+
                 const text = document.createElement("div");
                 text.id=`${key}_text`;
                 text.classList.add("contText");
                 text.append("작성자 : "+data[key].작성자);
                 text.append(" / 유형 : "+data[key].유형);
                 text.append(" / 등록일자 : "+data[key].등록일자);
+
                 document.getElementById('mainContents').appendChild(div);
                 document.getElementById(key).appendChild(docs);
                 document.getElementById(key).appendChild(text);
@@ -118,13 +134,13 @@ getEvent()
 write()
 })
 function write(){
-$("#mainContents").text("")
-$.getJSON("./JSON/event.json", function(data){
-    let i = 0;
-    for(key in data.comingEvent){
-        $("#mainContents").append(`${++i}. ${key} - ${data.comingEvent[key]}<br>`);
-    }
-})
+    $("#mainContents").html("<div id = 'eventDiv'></div>")
+    $.getJSON("./JSON/event.json", function(data){
+        let i = 0;
+        for(key in data.comingEvent){
+            $("#eventDiv").append(`${++i}. ${key} <br> ${data.comingEvent[key]}<br><br>`);
+        }
+    })
 }
 
 // 일정 롤링
@@ -133,9 +149,9 @@ var i = 0;
 var result = [];
 $.getJSON("./JSON/event.json", function(data){
     for(j in data.comingEvent){
-        result.push([`${j} - ${data.comingEvent[j]}`]);
+        result.push([`${j} <br> ${data.comingEvent[j]}`]);
     }
-    $("#topScheduleBar").html("Loading");
+    $("#topScheduleBar").html('Loading <div class="spinner-border spinner-border-sm text-light" role="status"></div>');
     setInterval(function() {
         $("#topScheduleBar").html(result[i]);
         if (i == result.length-1)
