@@ -12,10 +12,6 @@ $(".m_navButton div").click(function(e) {
         $("#mainContents").append(`<br><button id='howTo' onclick="howTo()">자료 등록하는 방법</button>`);
     }else if(menu === "event"){
         write();
-    }else if(menu === "science"){
-        $("#mainContents").html(`여러분들의 유용한 자료를 기다리고 있어요 😃<br> 과학 게시판의 첫 등록자가 되어 보세요.`);
-        $("#mainContents").append(`<br><a href="https://band.us/">자료 등록 하러가기</a>`);
-        $("#mainContents").append(`<br><button id='howTo' onclick="howTo()">자료 등록하는 방법</button>`);
     }else if(menu === "english_B"){
         $("#mainContents").html(`여러분들의 유용한 자료를 기다리고 있어요 😃<br> 영어-Blue 게시판의 첫 등록자가 되어 보세요.`);
         $("#mainContents").append(`<br><a href="https://band.us/">자료 등록 하러가기</a>`);
@@ -40,7 +36,7 @@ e.preventDefault();
 };
 
 function setImgModal(){
-    $('#contenstModalMain').innerHTML = '';
+    $('#contentsModalMain').innerHTML = '';
     const a = $('<a />', {
         'id': 'download_img',
         'download': 'true'
@@ -58,7 +54,7 @@ function setImgModal(){
 }
 
 function setDocsModal(){
-    $('#contenstModalMain').innerHTML = '';
+    $('#contentsModalMain').innerHTML = '';
     const id = this.id
     console.log(id)
     $('#download_img').html(`<embed src="./docs/${id}" type="application/pdf" style='width:100%;height:700px;border-radius:5px'/>`);
