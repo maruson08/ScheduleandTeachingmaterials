@@ -2,7 +2,7 @@
 $(".m_navButton div").click(function(e) {
     $(".m_navButton div").removeClass("selected").addClass("navButton");
     $(this).addClass("selected").removeClass("navButton");
-    $('#mainContenst').html('')
+    $('#mainContents').html('')
     let menu = $(this).attr('id');
     if(menu === "science"||menu === "moral"||menu === 'math'||menu === "korean"){
         getContents(menu);
@@ -36,7 +36,7 @@ e.preventDefault();
 };
 
 function setImgModal(){
-    $('#contentsModalMain').innerHTML = '';
+    $('#contentsModalMain').html('');
     const a = $('<a />', {
         'id': 'download_img',
         'download': 'true'
@@ -47,18 +47,18 @@ function setImgModal(){
         'src': '',
         'width': '100%'
     }).get(0);
-    $('body').append(a);
-    document.getElementById('download_img').append(img);
+    $('#contentsModalMain').append(a);
+    $('#download_img').append(img);
     $('#contentsModalLabel').text(id);
     $('#download_img').attr('href', `./img/${id}`);
     $('#modal_img').attr('src', `./img/${id}`);
 }
 
 function setDocsModal(){
-    $('#contentsModalMain').innerHTML = '';
+    $('#contentsModalMain').html('');
     const id = this.id
     console.log(id)
-    $('#download_img').html(`<embed src="./docs/${id}" type="application/pdf" style='width:100%;height:700px;border-radius:5px'/>`);
+    $('#contentsModalMain').html(`<embed src="./docs/${id}" type="application/pdf" style='width:100%;height:700px;border-radius:5px'/>`);
     $('#contentsModalLabel').text(id);
     
 }
