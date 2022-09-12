@@ -47,6 +47,7 @@ function setImgModal(){
         'src': '',
         'width': '100%'
     }).get(0);
+    $('body').append(a);
     document.getElementById('download_img').append(img);
     $('#contentsModalLabel').text(id);
     $('#download_img').attr('href', `./img/${id}`);
