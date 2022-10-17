@@ -1,3 +1,6 @@
+$('#topScheduleBar').click(function(e){
+    write()
+    e.preventDefault})
 
 $(".m_navButton div").click(function(e) {
     $(".m_navButton div").removeClass("selected").addClass("navButton");
@@ -10,8 +13,8 @@ $(".m_navButton div").click(function(e) {
         $("#mainContents").html(`여러분들의 유용한 자료를 기다리고 있어요 😃<br> 영어-Red 게시판의 첫 등록자가 되어 보세요.`);
         $("#mainContents").append(`<br><a href="https://band.us/">자료 등록 하러가기</a>`);
         $("#mainContents").append(`<br><button id='howTo' onclick="howTo()">자료 등록하는 방법</button>`);
-    }else if(menu === "event"){
-        write();
+    }else if(menu === "band"){
+        $("#mainContents").html(`서비스 준비중`);
     }else if(menu === "english_B"){
         $("#mainContents").html(`여러분들의 유용한 자료를 기다리고 있어요 😃<br> 영어-Blue 게시판의 첫 등록자가 되어 보세요.`);
         $("#mainContents").append(`<br><a href="https://band.us/">자료 등록 하러가기</a>`);
@@ -31,8 +34,7 @@ $(".m_navButton div").click(function(e) {
 
 function howTo() {
     $("#howTo").html(`개발자에게 밴드 톡으로 자료를 보내면 검토를 통해 검증된 자료가 업로드돼요.`);
-    d++;
-e.preventDefault();
+    e.preventDefault();
 };
 
 function setImgModal(){
@@ -57,7 +59,6 @@ function setImgModal(){
 function setDocsModal(){
     $('#contentsModalMain').html('');
     const id = this.id
-    console.log(id)
     $('#contentsModalMain').html(`<embed src="./docs/${id}" type="application/pdf" style='width:100%;height:700px;border-radius:5px'/>`);
     $('#contentsModalLabel').text(id);
     
@@ -128,8 +129,9 @@ function getContents(menu){
 //일정 불러오기
 $(document).ready(function(){
 getEvent()
-write()
+$("#mainContents").html("<h5><b>자료 등록 안내</b></h5>월/금 오후 5:30 ~ 6:00<br>토/일 유동적<br><br><h5><b>메뉴 수정 안내</b></h5>일정 -> 학급 밴드(준비 중)<br>일정 배너(상단의 일정 나오는 부분) 클릭 시 일정 페이지로 이동")
 })
+
 function write(){
     $("#mainContents").html("<div id = 'eventDiv'></div>")
     $.getJSON("./JSON/event.json", function(data){

@@ -1,0 +1,119 @@
+body{
+    margin: 0;
+}
+#top{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    border: 1px black solid;
+}
+#title{
+    padding: 50px;
+    border-right: 1px black solid;
+    text-align: center;
+}
+#topScheduleBar{
+    padding: 2%;
+    text-align: center;
+    font-size: x-large;
+}
+a{
+    text-decoration: none;
+    color: blue;
+}
+#topNavBar{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 50px;
+}
+.m_navButton{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    color: black;
+}
+.navButton{
+    padding-top: 25px;
+    height: 50px;
+    text-align: center;
+    padding-top: 15px;
+}
+.selected{
+    border-bottom: 1px black solid;
+}
+#mainContents{
+    margin: 25px;
+    padding-top:100px;
+    color: black;
+    text-align: center;
+    min-height: 500px;
+}
+.contDiv{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    border: 5px black solid;
+    border-radius: 8px;
+    margin: 15%;
+    margin-top: 0;
+    margin-bottom: 5%;
+}
+.contText{
+    color: black;
+}
+.contImg{
+    border: 1px black solid;
+    width: 100%;
+    border-radius:10px;
+}
+#howTo{
+    border: none;
+    background-color: white;
+}
+#infoDiv{
+    background-color: black;
+    height: 200px;
+    text-align: center;
+    color: gray;
+}
+.infoDiv:hover{
+    color: white;
+}
+#eventDiv{
+    text-align: center;
+}
+@media(max-width:800px){
+    #title{
+        padding: 0;
+    }
+    .m_navButton{
+        display: block;
+    }
+    .navButton, .selected{
+        height: 30px;
+        padding-top: 5px;
+    }
+    .selected{
+        border: 1px black solid;
+    }
+    .contDiv{
+        display: block;
+        border: 5px black solid;
+        border-radius: 8px;
+        margin: 0;
+        margin-bottom: 5%;
+    }
+    #mainContents{
+        min-height: 0;
+        padding-top: 0;
+    }
+    .contImg{
+        border-radius: 5px;
+        padding: 0;
+    } 
+    #topNavBar{
+        height: 90px;
+    }
+    #eventDiv{
+        text-align: left;
+    }
+}
