@@ -7,7 +7,7 @@ $(".m_navButton div").click(function(e) {
     $(this).addClass("selected").removeClass("navButton");
     $('#mainContents').html('')
     let menu = $(this).attr('id');
-    if(menu === "science"||menu === "moral"||menu === 'math'||menu === "korean"){
+    if(menu === "science"||menu === "moral"||menu === 'math'||menu === "korean"||menu === "tech_and_house"){
         getContents(menu);
     }else if(menu === "english_R"){
         $("#mainContents").html(`여러분들의 유용한 자료를 기다리고 있어요 😃<br> 영어-Red 게시판의 첫 등록자가 되어 보세요.`);
@@ -17,10 +17,6 @@ $(".m_navButton div").click(function(e) {
         $("#mainContents").html(`서비스 준비중`);
     }else if(menu === "english_B"){
         $("#mainContents").html(`여러분들의 유용한 자료를 기다리고 있어요 😃<br> 영어-Blue 게시판의 첫 등록자가 되어 보세요.`);
-        $("#mainContents").append(`<br><a href="https://band.us/">자료 등록 하러가기</a>`);
-        $("#mainContents").append(`<br><button id='howTo' onclick="howTo()">자료 등록하는 방법</button>`);
-    }else if(menu === "tech_and_house"){
-        $("#mainContents").html(`여러분들의 유용한 자료를 기다리고 있어요 😃<br> 기술·가정 게시판의 첫 등록자가 되어 보세요.`);
         $("#mainContents").append(`<br><a href="https://band.us/">자료 등록 하러가기</a>`);
         $("#mainContents").append(`<br><button id='howTo' onclick="howTo()">자료 등록하는 방법</button>`);
     }else{
