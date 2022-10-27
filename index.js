@@ -122,10 +122,11 @@ function getContents(menu){
 }
 
 
-//일정 불러오기
+//시작 프로그램
 $(document).ready(function(){
 getEvent()
-$("#mainContents").html("<h5><b>자료 등록 안내</b></h5>월/금 오후 5:30 ~ 6:00<br>토/일 유동적<br><br><h5><b>메뉴 수정 안내</b></h5>일정 -> 학급 밴드(준비 중)<br>일정 배너(상단의 일정 나오는 부분) 클릭 시 일정 페이지로 이동")
+$("#mainContents").html("<h5><b>자료 등록 안내</b></h5>월/금 오후 5:30 ~ 6:00<br>토/일 유동적<br><br><h5><b>메뉴 수정 안내</b></h5>일정 -> 학급 밴드(준비 중)<br>일정 배너(상단의 일정 나오는 부분) 클릭 시 일정 페이지로 이동<br><br><h5>학교 안내 사항</h5><br>")
+$("#mainContents").append('<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid08ih4q6EzxVAszguPj2nb7bKJbqrDUvLqekpfcZy1yJPFreAks5hivna5neKBzPAGl%26id%3D100082969520209&show_text=true&width=500" width="500" height="498" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>')
 })
 
 function write(){
