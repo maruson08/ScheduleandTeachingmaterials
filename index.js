@@ -2,6 +2,8 @@ $('#topScheduleBar').click(function(e){
     write()
     e.preventDefault})
 
+
+const howToButton = `<br><div style='background-color: orange;' id='howTo' onclick="howTo()">자료 등록하는 방법</div>`;
 $(".m_navButton div").click(function(e) {
     $(".m_navButton div").removeClass("selected").addClass("navButton");
     $(this).addClass("selected").removeClass("navButton");
@@ -12,17 +14,17 @@ $(".m_navButton div").click(function(e) {
     }else if(menu === "english_R"){
         $("#mainContents").html(`여러분들의 유용한 자료를 기다리고 있어요 😃<br> 영어-Red 게시판의 첫 등록자가 되어 보세요.`);
         $("#mainContents").append(`<br><a href="https://band.us/">자료 등록 하러가기</a>`);
-        $("#mainContents").append(`<br><button id='howTo' onclick="howTo()">자료 등록하는 방법</button>`);
+        $("#mainContents").append(howToButton);
     }else if(menu === "band"){
         $("#mainContents").html(`서비스 준비중`);
     }else if(menu === "english_B"){
         $("#mainContents").html(`여러분들의 유용한 자료를 기다리고 있어요 😃<br> 영어-Blue 게시판의 첫 등록자가 되어 보세요.`);
         $("#mainContents").append(`<br><a href="https://band.us/">자료 등록 하러가기</a>`);
-        $("#mainContents").append(`<br><button id='howTo' onclick="howTo()">자료 등록하는 방법</button>`);
+        $("#mainContents").append(howToButton);
     }else{
         $("#mainContents").html(`여러분들의 유용한 자료를 기다리고 있어요 😃<br> 한문 게시판의 첫 등록자가 되어 보세요.`);
         $("#mainContents").append(`<br><a href="https://band.us/" target="_blank">자료 등록 하러가기</a>`);
-        $("#mainContents").append(`<br><button id='howTo' onclick="howTo()">자료 등록하는 방법</button>`);
+        $("#mainContents").append(howToButton);
     }
     e.preventDefault();     
 }            
@@ -126,7 +128,7 @@ function getContents(menu){
 $(document).ready(function(){
 getEvent()
 $("#mainContents").html("<h5><b>자료 등록 안내</b></h5>월/금 오후 5:30 ~ 6:00<br>토/일 유동적<br><br><h5><b>메뉴 수정 안내</b></h5>일정 -> 학급 밴드(준비 중)<br>일정 배너(상단의 일정 나오는 부분) 클릭 시 일정 페이지로 이동<br><br><h5>학교 안내 사항</h5><br>")
-$("#mainContents").append('<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid08ih4q6EzxVAszguPj2nb7bKJbqrDUvLqekpfcZy1yJPFreAks5hivna5neKBzPAGl%26id%3D100082969520209&show_text=true&width=500" width="500" height="498" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>')
+$("#mainContents").append('<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02GBGiedr8oE2TxetdWNCpPzNfJTkygMQ5BjXtLURjw2567RCHnp8m6wX97DKB5r2gl%26id%3D100082969520209&show_text=true&width=500"class="school" style="border-radius:20px;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>')
 })
 
 function write(){
