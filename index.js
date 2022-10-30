@@ -1,5 +1,5 @@
 $('#topScheduleBar').click(function(e){
-    const audio = new Audio('/sound/ghost.mp3');
+    const audio = new Audio('./sound/ghost.mp3');
     audio.play();
     write();
     e.preventDefault})
@@ -128,7 +128,7 @@ function getContents(menu){
 
 //시작 프로그램
 $(document).ready(function(){
-const audio = new Audio('/sound/spooky.mp3');
+const audio = new Audio('./sound/spooky.mp3');
 audio.play();
 getEvent()
 $("#mainContents").append("<h5><b>자료 등록 안내</b></h5>월/금 오후 5:30 ~ 6:00<br>토/일 유동적<br><br><h5><b>메뉴 수정 안내</b></h5>일정 -> 학급 밴드(준비 중)<br>일정 배너(상단의 일정 나오는 부분) 클릭 시 일정 페이지로 이동<br><br><h5>학교 안내 사항</h5><br>")
