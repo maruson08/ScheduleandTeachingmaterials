@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
-#howTo{
-    background-color: orange;
+.halloween{
+    position:absolute;border-radius: 8px;
+    min-width: 50px;
 }
 .contentsModalLabel{
-    color: white;
+    color: orange;
 }
 .school{
     width: 500px;
@@ -27,20 +28,22 @@ a{
 body{
     margin: 0;
     font-family: 'Jua', sans-serif;
+    background-color: orange;
 }
 #topScheduleBar{
     padding: 2%;
-    color: white;
+    color: orange;
     background-color: black;
     text-align: center;
     font-size: x-large;
 }
 .navButton:hover{
-    background-color: rgb(37, 37, 37);
+    background-color: rgba(255, 166, 0, 0.829);
+    color:black;
 }
 .selected{
     color: black;
-    background-color: white;
+    background-color: orange;
     padding-top: 15px;
     height: 50px;
     text-align: center;
@@ -55,7 +58,7 @@ body{
 .m_navButton{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    color: white;
+    color: orange;
     background-color: black;
 }
 .contDiv{
@@ -84,10 +87,10 @@ body{
     background-color: black;
     height: 200px;
     text-align: center;
-    color: gray;
+    color: orange;
 }
 .infoDiv:hover{
-    color: white;
+    color: rgba(255, 166, 0, 0.829);
 }
 #eventDiv{
     text-align: center;
@@ -106,7 +109,7 @@ body{
     }
     .contDiv{
         display: block;
-        border: 5px black solid;
+        border: 5px orange solid;
         border-radius: 8px;
         margin: 0;
         margin-bottom: 5%;
