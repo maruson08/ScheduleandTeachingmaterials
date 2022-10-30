@@ -1,4 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+#bail{
+    text-align: center;
+    font-size: 80%;
+    position: absolute;
+    width:100%;
+    height:100%;
+    top: 0;
+    left: 0;
+    color:white;
+    background-color: black;
+    opacity: 0.7;
+    z-index: 2;
+}
 .halloween{
     position:absolute;border-radius: 8px;
     min-width: 50px;
@@ -9,6 +22,7 @@
 .school{
     width: 500px;
     height: 500px;
+    margin: 0;
 }
 a{
     text-decoration: none;

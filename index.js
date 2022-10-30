@@ -1,10 +1,6 @@
 $('#topScheduleBar').click(function(e){
     write();
     e.preventDefault})
-$('.halloween').click(function(e){
-    const audio = new Audio('./sound/ghost.mp3');
-    audio.play();
-    e.preventDefault})
 
 
 const howToButton = `<br><div id='howTo' style='background-color:orange' onclick="howTo()">자료 등록하는 방법</div>`;
