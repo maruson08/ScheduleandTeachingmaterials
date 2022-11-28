@@ -1,26 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
-#ribbon{
-    position: absolute;
-    z-index: 3;
-    top: 30%;
-    left: 42.5%;
-    width: 15%;
-}
-#bail{
-    text-align: center;
-    font-size: xx-large;
-    padding-top: 18%;
-    position: absolute;
-    width:100%;
-    height:100%;
-    top: 0;
-    left: 0;
-    color:black;
-    background-color: white;
-    z-index: 2;
-    opacity: 0.8;
-}
-.ha
 .contentsModalLabel{
     color: white;
 }
